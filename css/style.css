@@ -92,3 +92,7 @@ img {
     float: left;
     width: 70%;
   }
+
+  #photo img{
+display: inline;
+  }

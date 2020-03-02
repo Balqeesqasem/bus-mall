@@ -7,9 +7,19 @@ var leftItem = document.getElementById('left_item_img');
 
 // // Array to store all obj
  var myObjectArray = [];
-
+ var clkOneachimg =[];
+ var timeImgDisplay=[];
 // // to count time user clk on item
 var clkTimeCount = 0;
+
+for(var i=0 ; i<shoppingIteam.length ; i++)
+    {
+      clkOneachimg.push(0);
+     timeImgDisplay.push(0);
+
+    }
+    console.log(clkOneachimg);
+console.log(timeImgDisplay);
 
 // // constructer 
  function Buy(name ) {
@@ -49,6 +59,7 @@ function pickRandomItems(){
   console.log(myObjectArray);
 
   function clickImage(e){
+    
     if( e.target.id === 'left_item_img' || e.target.id === 'middle_item_img' || e.target.id === 'right_item_imgg'){
         pickRandomItems();
       clkTimeCount++;
@@ -56,9 +67,32 @@ function pickRandomItems(){
     if(clkTimeCount === 25){
       //remove event listener
       allItem.removeEventListener('click' , clickImage);
-       console.log(clkTimeCount);
-    //   console.log('finished');
+      for (var i=0 ; i<myObjectArray.length ; i++){
+        var gitTag = document.getElementById('result');
+        var listCreat = document.createElement('li');
+        gitTag.appendChild(listCreat);
+        listCreat.textContent = `${myObjectArray[i].name} had ${clkOneachimg[i]} vots and was shown ${timeImgDisplay[i]}`;
+      }
+      
+      }
+    
+    for(var i=0 ; i<shoppingIteam.length; i++){
+      if ( e.target.alt  ===  myObjectArray[i].name){
+        clkOneachimg[i]+=1;
+      }
+      if (myObjectArray[i].name ===leftItem.alt ){
+        timeImgDisplay[i]+=1;
+      }
+      if (myObjectArray[i].name ===middleItem.alt ){
+        timeImgDisplay[i]+=1;
+      }
+      if (myObjectArray[i].name ===rightItem.alt ){
+        timeImgDisplay[i]+=1;
+      }
+
     }
+    console.log(timeImgDisplay);
+    
   }
   allItem.addEventListener('click' , clickImage);
 
@@ -68,6 +102,7 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
  
+
 
 
   
