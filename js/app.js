@@ -1,21 +1,22 @@
-'use strict';
+ 'use strict';
 var shoppingIteam =['bag.jpg', 'banana.jpg' , 'bathroom.jpg' , 'boots.jpg' , 'breakfast.jpg' , 'bubblegum.jpg' , 'chair.jpg' , 'cthulhu.jpg' , 'dog-duck.jpg', 'dragon.jpg' , 'pen.jpg' , 'pet-sweep.jpg', 'scissors.jpg', 'shark.jpg', 'sweep.png','tauntaun.jpg', 'unicorn.jpg','usb.gif', 'water-can.jpg','wine-glass.jpg'];
-
 var leftItem = document.getElementById('left_item_img');
-var middleItem = document.getElementById('middle_item_img');
-var rightItem = document.getElementById('right_item_img');
-var allItem = document.getElementById('all_shope_item');
+ var middleItem = document.getElementById('middle_item_img');
+ var rightItem = document.getElementById('right_item_img');
+ var allItem = document.getElementById('all_shope_item');
 
-// Array to store all obj
-var myObjectArray = [];
+// // Array to store all obj
+ var myObjectArray = [];
 
-// to count time user clk on item
+// // to count time user clk on item
 var clkTimeCount = 0;
 
-// constructer 
-function Buy(name ) {
-    this.name = name;
-    this.urlImage = `img/${this.name}`;
+// // constructer 
+ function Buy(name ) {
+    this.name = name.split('.')[0];
+    this.urlImage = `img/${name}`;
+    this.clickImage =0;
+    
     myObjectArray.push(this);
 };
 
@@ -23,18 +24,21 @@ function pickRandomItems(){
     var leftItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
     var middleItemRandom = myObjectArray[randomNumber(0, myObjectArray.length-1)];
     var rightItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
-
-    leftItem .setAttribute('src' , leftItemRandom.urlImage);
-    leftItem .setAttribute('alt' , leftItemRandom.name);
+    
+    while(leftItemRandom === middleItemRandom || leftItemRandom === rightItemRandom || middleItemRandom === rightItemRandom ){
+      //pick another random item
+      leftItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
+    middleItemRandom = myObjectArray[randomNumber(0, myObjectArray.length-1)];
+    rightItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
+    }
+    leftItem.setAttribute('src' , leftItemRandom.urlImage);
+    leftItem.setAttribute('alt' , leftItemRandom.name);
     middleItem.setAttribute('src' , middleItemRandom.urlImage);
     middleItem.setAttribute('alt' , middleItemRandom.name);
     rightItem.setAttribute('src' , rightItemRandom.urlImage);
     rightItem.setAttribute('alt' , rightItemRandom.name);
 
-    while(leftItemRandom.name === middleItemRandom.name || leftItemRandom.name === rightItemRandom.name || middleItemRandom.name === rightItemRandom.name ){
-      //pick another random item
-      pickRandomItems();
-    }
+   
   }
 
   for(var i = 0; i< shoppingIteam.length ; i++){
