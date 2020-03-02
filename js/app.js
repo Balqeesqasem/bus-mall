@@ -9,6 +9,7 @@ var leftItem = document.getElementById('left_item_img');
  var myObjectArray = [];
  var clkOneachimg =[];
  var timeImgDisplay=[];
+ var arrayStoreImgWePic = [];
 // // to count time user clk on item
 var clkTimeCount = 0;
 
@@ -35,12 +36,42 @@ function pickRandomItems(){
     var middleItemRandom = myObjectArray[randomNumber(0, myObjectArray.length-1)];
     var rightItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
     
-    while(leftItemRandom === middleItemRandom || leftItemRandom === rightItemRandom || middleItemRandom === rightItemRandom ){
-      //pick another random item
+      while(leftItemRandom === middleItemRandom || leftItemRandom === rightItemRandom || middleItemRandom === rightItemRandom ){
+        //pick another random item
+        leftItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
+      middleItemRandom = myObjectArray[randomNumber(0, myObjectArray.length-1)];
+      rightItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
+      }
+ var arrayStoreImgWePic = [];
+
+ 
+  
+console.log(arrayStoreImgWePic);
+  for(var i=0 ; i<arrayStoreImgWePic.length ; i++){
+    if (arrayStoreImgWePic[i] === leftItemRandom || arrayStoreImgWePic[i] === middleItemRandom || arrayStoreImgWePic[i] === rightItemRandom){
       leftItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
-    middleItemRandom = myObjectArray[randomNumber(0, myObjectArray.length-1)];
-    rightItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
+      middleItemRandom = myObjectArray[randomNumber(0, myObjectArray.length-1)];
+      rightItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
     }
+    else {
+      arrayStoreImgWePic.pop(leftItemRandom);
+      arrayStoreImgWePic.pop(middleItemRandom);
+      arrayStoreImgWePic.pop(rightItemRandom);
+      
+    }
+  }
+  arrayStoreImgWePic.push(leftItemRandom);
+  arrayStoreImgWePic.push(middleItemRandom);
+  arrayStoreImgWePic.push(rightItemRandom);
+  
+//   while(arrayStoreImgWePic === leftItemRandom || arrayStoreImgWePic === middleItemRandom || arrayStoreImgWePic === rightItemRandom  )
+//  {
+//   leftItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
+//   middleItemRandom = myObjectArray[randomNumber(0, myObjectArray.length-1)];
+//   rightItemRandom =  myObjectArray[randomNumber(0 , myObjectArray.length-1 )];
+//  }
+    
+
     leftItem.setAttribute('src' , leftItemRandom.urlImage);
     leftItem.setAttribute('alt' , leftItemRandom.name);
     middleItem.setAttribute('src' , middleItemRandom.urlImage);
