@@ -1,0 +1,64 @@
+section#photo {
+  display: inline-flex;
+  
+    width: 55%;
+    /* align-content: center; */
+    margin: 10% 25%;
+}
+
+  
+  img {
+    max-height: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 30%;
+    padding: 13%;
+    height: 50%;
+    width: 60%;
+}
+h1 {
+  font-family: 'Trade Winds', cursive;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-align: center;
+  color: rgb(226, 74, 13);
+  background-color: rgb(26, 24, 25);
+  padding: 1%;
+  animation: blinkingText 2s infinite;
+  margin: 2% 3% 0% 3%;
+}
+
+@keyframes blinkingText{
+  0%{     color:  rgb(226, 74, 13);    }
+  49%{    color:  rgb(226, 74, 13); }
+  60%{    color: transparent; }
+  99%{    color:transparent;  }
+  100%{   color:  rgb(226, 74, 13);    }
+}
+p {
+  font-family: 'Trade Winds', cursive;
+  text-align: center;
+  color: rgb(226, 74, 13);
+  background-color: rgb(26, 24, 25);
+  padding: 1%;
+  margin: 2% 15% 0% 15%;}
+  ol, ul {
+    font-family: 'Trade Winds', cursive;
+font-family: 'Lacquer', sans-serif;
+    list-style: none;
+    text-align: center;
+    color: red;
+    margin: 0% 20% 1% 20%;
+    font-size: 174%;
+    font-weight: bold;
+    background-color: wheat;
+    line-height: 145%;
+}
+
+element.style {
+  display: block;
+  height: 30%;
+  width: 98%;
+}
