@@ -183,7 +183,7 @@ function getItem(){
   if(clksCount){
     myObjectArray = JSON.parse(clksCount);
   }
-  resultFinal();
+  //resultFinal();
   renderChartFuncion();
   // clksCount = JSON.parse(clksCount);
   // if (clksCount){
