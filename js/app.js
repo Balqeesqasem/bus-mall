@@ -85,7 +85,7 @@ arrayStoreImgWePic = [];
       rightItemRandom.clkOneachimg+=1;
       pickRandomItems();
     }
-    setItem();
+     setItem();
     
     if(clkTimeCount === 25){
       allItem.removeEventListener('click' , clickImage);
@@ -93,17 +93,18 @@ arrayStoreImgWePic = [];
       rightItem.remove();
       middleItem.remove();
       renderChartFuncion();
-      resultFinal ();
+      resultFinal();
       
       }
     
      
      
     }
-    // setItem();
+    getItem();
+     //setItem();
 
     function resultFinal (){
-      for (var i=0 ; i<myObjectArray.length ; i++){
+      for (var i=0 ; i< myObjectArray.length ; i++){
         var gitTag = document.getElementById('result');
         var listCreat = document.createElement('li');
         gitTag.appendChild(listCreat);
@@ -179,9 +180,17 @@ function setItem(){
 }
 function getItem(){
   var clksCount = localStorage.getItem('clks');
-  clksCount = JSON.parse(clksCount);
-  // resultFinal ();
-  //    renderChartFuncion();
+  if(clksCount){
+    myObjectArray = JSON.parse(clksCount);
+  }
+  resultFinal();
+  renderChartFuncion();
+  // clksCount = JSON.parse(clksCount);
+  // if (clksCount){
+  //   myObjectArray= JSON.parse(clksCount);
+  // }
+    //   resultFinal ();
+    //  renderChartFuncion();
 }
 
   getItem();
